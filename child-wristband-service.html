@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهوية الرقمية للاطفال - منصة أبشر | Digital Identity for Children - Absher Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFFFFF;
+            color: #1F2937;
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E0E0E0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2E7D32;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1F2937;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #6B7280;
+            font-weight: 400;
+        }
+
+        .back-button {
+            background-color: #F3F4F6;
+            color: #1F2937;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .back-button:hover {
+            background-color: #E5E7EB;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #E8F5E9;
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #6B7280;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .service-badge {
+            display: inline-block;
+            background-color: #2E7D32;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #2E7D32;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #6B7280;
+            margin-bottom: 2rem;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background-color: #F9FAFB;
+            border: 1px solid #E0E0E0;
+            border-radius: 4px;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #E8F5E9;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #2E7D32;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .feature-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: #6B7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .steps {
+            margin-top: 2rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #F9FAFB;
+            border-right: 4px solid #2E7D32;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: #6B7280;
+            font-size: 0.95rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            color: #6B7280;
+            font-size: 1rem;
+            border-bottom: 2px solid transparent;
+            background-color: #F9FAFB;
+            border: 1px solid #E0E0E0;
+            border-bottom: none;
+            position: relative;
+            bottom: -1px;
+        }
+
+        .tab.active {
+            color: #2E7D32;
+            border-bottom-color: #2E7D32;
+            font-weight: 500;
+            background-color: #FFFFFF;
+            border-top: 2px solid #2E7D32;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #E0E0E0;
+            border-radius: 4px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            background-color: #FFFFFF;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #2E7D32;
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-help {
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin-top: 0.25rem;
+        }
+
+        .required {
+            color: #DC2626;
+        }
+
+        /* Checkbox */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 0.25rem;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            font-size: 0.95rem;
+            color: #1F2937;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .button {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .button-primary {
+            background-color: #2E7D32;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background-color: #1B5E20;
+        }
+
+        .button-secondary {
+            background-color: #F3F4F6;
+            color: #1F2937;
+        }
+
+        .button-secondary:hover {
+            background-color: #E5E7EB;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* QR Scanner Interface */
+        .qr-scanner {
+            background-color: #F9FAFB;
+            border: 2px dashed #E0E0E0;
+            border-radius: 4px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            background-color: #FFFFFF;
+            border: 2px solid #E0E0E0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6B7280;
+        }
+
+        .qr-info {
+            background-color: #E8F5E9;
+            border: 1px solid #2E7D32;
+            border-radius: 4px;
+            padding: 1rem;
+            margin-top: 2rem;
+            text-align: right;
+        }
+
+        .qr-info h4 {
+            color: #2E7D32;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .qr-info ul {
+            list-style: none;
+            color: #1F2937;
+            font-size: 0.95rem;
+        }
+
+        .qr-info ul li {
+            padding: 0.25rem 0;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+
+        .qr-info ul li:before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #2E7D32;
+        }
+
+        /* Alert Box */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .alert-info {
+            background-color: #E8F5E9;
+            border: 1px solid #2E7D32;
+            color: #1F2937;
+        }
+
+        .alert-warning {
+            background-color: #FEF3C7;
+            border: 1px solid #F59E0B;
+            color: #1F2937;
+        }
+
+        /* Privacy Section */
+        .privacy-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .privacy-list li {
+            padding: 0.75rem 0;
+            padding-right: 2rem;
+            position: relative;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .privacy-list li:before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #2E7D32;
+            font-weight: 600;
+        }
+
+        /* Integration Badges */
+        .integration-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            background-color: #F9FAFB;
+            border: 1px solid #E0E0E0;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #1F2937;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #2E7D32;
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #F9FAFB;
+            border-top: 1px solid #E0E0E0;
+            padding: 2rem;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                border-bottom: 1px solid #E0E0E0;
+            }
+
+            .tab.active {
+                border-right: 4px solid #2E7D32;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">أ</div>
+            <div class="logo-text">
+                <h1>منصة أبشر</h1>
+                <p>Absher Platform</p>
+            </div>
+        </div>
+        <button class="back-button" onclick="window.location.href='government-portal.html'">
+            العودة للرئيسية
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>الهوية الرقمية للاطفال</h1>
+            <p>حل متكامل لحماية الأطفال من الولادة حتى 14 عاماً، متصل مباشرة بمنصة أبشر لضمان الدقة والموثوقية</p>
+            <span class="service-badge">متكامل مع أبشر • معتمد حكومياً</span>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Overview Section -->
+        <section class="section">
+            <h2 class="section-title">نظرة عامة عن الخدمة</h2>
+            <p class="section-subtitle">سوار ذكي يوفر هوية رقمية آمنة للأطفال مع إمكانية الوصول الطارئ للمعلومات الصحية الأساسية</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>حماية البيانات</h3>
+                    <p>تشفير متقدم للبيانات الشخصية مع الوصول المحدود للأطراف المصرح لها فقط</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h3>متكامل مع أبشر</h3>
+                    <p>اتصال مباشر بمنصة أبشر لضمان دقة البيانات والتحديث التلقائي</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>معلومات طارئة</h3>
+                    <p>وصول سريع للمعلومات الصحية والطبية الحرجة في حالات الطوارئ</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>بدون تتبع مستمر</h3>
+                    <p>لا يحتوي على GPS أو تقنيات التتبع المستمر، حماية لخصوصية الطفل</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <h3>معتمد حكومياً</h3>
+                    <p>متوافق مع معايير الحكومة السعودية للهوية والخصوصية وأمن البيانات</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>راحة بال الأسرة</h3>
+                    <p>يوفر للوالدين والأوصياء الثقة في سلامة أطفالهم</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="section">
+            <h2 class="section-title">كيف يعمل النظام</h2>
+            <p class="section-subtitle">عملية بسيطة وآمنة من التسجيل حتى الاستخدام</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>التسجيل عبر منصة أبشر</h3>
+                        <p>يقوم ولي الأمر بالتسجيل من خلال حسابه في أبشر وإدخال المعلومات الأساسية للطفل والمعلومات الصحية الطارئة</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>استلام السوار الذكي</h3>
+                        <p>يتم إرسال السوار الذكي مع رمز QR مشفر فريد مربوط ببيانات الطفل على منصة أبشر</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>التفعيل والربط</h3>
+                        <p>يتم تفعيل السوار من خلال التطبيق وربطه بالهوية الرقمية للطفل بشكل آمن</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>الوصول الطارئ</h3>
+                        <p>في حالة الطوارئ، يمكن للجهات المصرح لها (مستشفيات، إسعاف، شرطة) مسح رمز QR للوصول للمعلومات الحرجة فقط</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs Section -->
+        <section class="section">
+            <div class="tabs">
+                <div class="tab active" data-tab="register">تسجيل طفل جديد</div>
+                <div class="tab" data-tab="emergency">الوصول الطارئ للمعلومات</div>
+                <div class="tab" data-tab="consent">موافقات ولي الأمر</div>
+                <div class="tab" data-tab="manage">إدارة السوار</div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="tab-content active" id="register">
+                <div class="alert alert-info">
+                    يجب أن يكون لديك حساب نشط في منصة أبشر لإتمام عملية التسجيل
+                </div>
+
+                <form id="registrationForm">
+                    <h3 style="margin-bottom: 1.5rem; color: #1F2937;">معلومات ولي الأمر</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">رقم الهوية الوطنية <span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="1234567890" required>
+                            <p class="form-help">سيتم التحقق من الهوية عبر منصة أبشر</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">رقم الجوال المسجل في أبشر <span class="required">*</span></label>
+                            <input type="tel" class="form-input" placeholder="05xxxxxxxx" required>
+                        </div>
+                    </div>
+
+                    <h3 style="margin: 2rem 0 1.5rem; color: #1F2937;">معلومات الطفل</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">الاسم الكامل <span class="required">*</span></label>
+                            <input type="text" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">تاريخ الميلاد <span class="required">*</span></label>
+                            <input type="date" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">الجنس <span class="required">*</span></label>
+                            <select class="form-select" required>
+                                <option value="">اختر</option>
+                                <option value="male">ذكر</option>
+                                <option value="female">أنثى</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">رقم الهوية / السجل المدني</label>
+                            <input type="text" class="form-input">
+                            <p class="form-help">إن وجد</p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin: 2rem 0 1.5rem; color: #1F2937;">المعلومات الطبية الطارئة</h3>
+
+                    <div class="alert alert-warning">
+                        هذه المعلومات سيتم الوصول إليها فقط في حالات الطوارئ من قبل الجهات المصرح لها
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">فصيلة الدم</label>
+                        <select class="form-select">
+                            <option value="">اختر</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">الحساسية المعروفة</label>
+                        <textarea class="form-textarea" placeholder="مثال: حساسية من البنسلين، حساسية من الفول السوداني"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">الأمراض المزمنة</label>
+                        <textarea class="form-textarea" placeholder="مثال: الربو، السكري، أمراض القلب"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">الأدوية المستمرة</label>
+                        <textarea class="form-textarea" placeholder="اذكر اسم الدواء والجرعة إن أمكن"></textarea>
+                    </div>
+
+                    <h3 style="margin: 2rem 0 1.5rem; color: #1F2937;">جهات الاتصال في حالة الطوارئ</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">الاسم الأول للتواصل <span class="required">*</span></label>
+                            <input type="text" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">رقم الجوال <span class="required">*</span></label>
+                            <input type="tel" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">الاسم الثاني للتواصل</label>
+                            <input type="text" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">رقم الجوال</label>
+                            <input type="tel" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy" required>
+                        <label for="privacy">
+                            أوافق على سياسة الخصوصية وأقر بأن المعلومات المدخلة صحيحة ودقيقة. أفهم أن هذه المعلومات سيتم تخزينها بشكل آمن ولن يتم الوصول إليها إلا في حالات الطوارئ من قبل الجهات المصرح لها فقط.
+                        </label>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="button button-primary">تقديم الطلب</button>
+                        <button type="reset" class="button button-secondary">إعادة تعيين</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Emergency Access -->
+            <div class="tab-content" id="emergency">
+                <div class="alert alert-warning">
+                    هذه الخدمة مخصصة للجهات المصرح لها فقط (المستشفيات، الإسعاف، الشرطة، الدفاع المدني)
+                </div>
+
+                <div class="qr-scanner">
+                    <div class="qr-placeholder">
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <rect x="7" y="7" width="3" height="3"/>
+                            <rect x="14" y="7" width="3" height="3"/>
+                            <rect x="7" y="14" width="3" height="3"/>
+                            <rect x="14" y="14" width="3" height="3"/>
+                        </svg>
+                    </div>
+                    <h3 style="color: #1F2937; margin-bottom: 0.5rem;">مسح رمز QR من السوار الذكي</h3>
+                    <p style="color: #6B7280; margin-bottom: 1.5rem;">قم بتوجيه الكاميرا نحو رمز QR على سوار الطفل</p>
+                    <button class="button button-primary">تفعيل الكاميرا</button>
+                </div>
+
+                <div class="qr-info">
+                    <h4>المعلومات المتاحة عند المسح:</h4>
+                    <ul>
+                        <li>الاسم الكامل للطفل والعمر</li>
+                        <li>فصيلة الدم</li>
+                        <li>الحساسية المعروفة</li>
+                        <li>الأمراض المزمنة</li>
+                        <li>الأدوية المستمرة</li>
+                        <li>أرقام التواصل في حالات الطوارئ</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background-color: #F9FAFB; border-radius: 4px;">
+                    <h4 style="color: #1F2937; margin-bottom: 1rem;">متطلبات الوصول:</h4>
+                    <div class="form-group">
+                        <label class="form-label">رقم الترخيص المهني أو الجهة</label>
+                        <input type="text" class="form-input" placeholder="رقم الترخيص / اسم الجهة">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">سبب الوصول للمعلومات</label>
+                        <select class="form-select">
+                            <option value="">اختر السبب</option>
+                            <option value="emergency">حالة طارئة</option>
+                            <option value="medical">فحص طبي</option>
+                            <option value="accident">حادث</option>
+                            <option value="lost">طفل مفقود</option>
+                        </select>
+                    </div>
+                    <p style="font-size: 0.875rem; color: #6B7280; margin-top: 1rem;">
+                        سيتم تسجيل جميع عمليات الوصول وإرسال إشعار فوري لولي الأمر
+                    </p>
+                </div>
+            </div>
+
+            <!-- Parental Consent & Access Control -->
+            <div class="tab-content" id="consent">
+                <div class="alert alert-info">
+                    تحكم كامل في من يمكنه الوصول لمعلومات طفلك - جميع الصلاحيات تحت سيطرتك
+                </div>
+
+                <h3 style="margin: 2rem 0 1.5rem; color: #1F2937; font-size: 1.25rem;">إدارة الصلاحيات للجهات التعليمية ومقدمي الرعاية</h3>
+
+                <div style="background-color: #E8F5E9; padding: 1.5rem; border-radius: 4px; border: 1px solid #2E7D32; margin-bottom: 2rem;">
+                    <h4 style="color: #2E7D32; margin-bottom: 0.75rem;">المبادئ الأساسية:</h4>
+                    <ul style="list-style: none; color: #1F2937; font-size: 0.95rem; margin-right: 1.5rem;">
+                        <li style="padding: 0.25rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32;">✓</span>
+                            لا يمكن لأي جهة الوصول للمعلومات بدون موافقتك الصريحة
+                        </li>
+                        <li style="padding: 0.25rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32;">✓</span>
+                            يمكنك إلغاء الصلاحية في أي وقت فوراً
+                        </li>
+                        <li style="padding: 0.25rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32;">✓</span>
+                            أنت تحدد نوع المعلومات التي يمكن مشاركتها
+                        </li>
+                        <li style="padding: 0.25rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32;">✓</span>
+                            جميع عمليات الوصول مسجلة وشفافة
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Add New Institution Access -->
+                <div style="background-color: #F9FAFB; padding: 2rem; border-radius: 4px; border: 1px solid #E0E0E0; margin-bottom: 2rem;">
+                    <h4 style="color: #1F2937; margin-bottom: 1.5rem; font-size: 1.125rem;">منح صلاحية جديدة</h4>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">نوع الجهة <span class="required">*</span></label>
+                            <select class="form-select" id="institutionType">
+                                <option value="">اختر نوع الجهة</option>
+                                <option value="school">مدرسة</option>
+                                <option value="nursery">حضانة</option>
+                                <option value="daycare">مركز رعاية نهارية</option>
+                                <option value="club">نادي رياضي أو اجتماعي</option>
+                                <option value="hospital">مستشفى / عيادة</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">اسم الجهة <span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="مثال: مدرسة الملك فهد الابتدائية">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">رقم الترخيص الحكومي <span class="required">*</span></label>
+                            <input type="text" class="form-input" placeholder="سيتم التحقق من الترخيص">
+                            <p class="form-help">سيتم التحقق من صحة الترخيص عبر المنصات الحكومية</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">اسم المسؤول المباشر</label>
+                            <input type="text" class="form-input" placeholder="مثال: المعلمة / المشرفة">
+                        </div>
+                    </div>
+
+                    <h4 style="color: #1F2937; margin: 2rem 0 1rem; font-size: 1rem;">المعلومات المسموح بالوصول إليها</h4>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="access_basic" checked disabled>
+                        <label for="access_basic" style="color: #6B7280;">
+                            <strong>المعلومات الأساسية</strong> (إلزامية) - الاسم، العمر، الصورة
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="access_emergency" checked disabled>
+                        <label for="access_emergency" style="color: #6B7280;">
+                            <strong>جهات الاتصال الطارئة</strong> (إلزامية) - أرقام ولي الأمر
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="access_health">
+                        <label for="access_health">
+                            <strong>التنبيهات الصحية الحرجة</strong> - الحساسية، الأمراض المزمنة فقط
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="access_medical">
+                        <label for="access_medical">
+                            <strong>المعلومات الطبية الكاملة</strong> - فصيلة الدم، الأدوية، التاريخ الطبي
+                        </label>
+                    </div>
+
+                    <div style="background-color: #FEF3C7; border: 1px solid #F59E0B; padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+                        <strong style="color: #92400E;">ملاحظة:</strong>
+                        <span style="color: #92400E;"> البيانات الكاملة للهوية الوطنية لن تكون متاحة للجهات التعليمية تحت أي ظرف</span>
+                    </div>
+
+                    <h4 style="color: #1F2937; margin: 2rem 0 1rem; font-size: 1rem;">مدة الصلاحية</h4>
+
+                    <div class="form-group">
+                        <label class="form-label">نوع الصلاحية <span class="required">*</span></label>
+                        <select class="form-select" id="accessDuration">
+                            <option value="ongoing">مستمرة - حتى إلغائها يدوياً</option>
+                            <option value="academic_year">سنة دراسية واحدة (تنتهي تلقائياً)</option>
+                            <option value="semester">فصل دراسي واحد</option>
+                            <option value="custom">مدة محددة (اختر التاريخ)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="customDateGroup" style="display: none;">
+                        <label class="form-label">تاريخ انتهاء الصلاحية</label>
+                        <input type="date" class="form-input">
+                    </div>
+
+                    <div class="button-group">
+                        <button class="button button-primary" onclick="alert('تم منح الصلاحية بنجاح\n\nسيتم إرسال إشعار للجهة بالموافقة\nيمكنك مراجعة أو إلغاء الصلاحية في أي وقت من قائمة الصلاحيات النشطة')">منح الصلاحية</button>
+                        <button class="button button-secondary">إلغاء</button>
+                    </div>
+                </div>
+
+                <!-- Active Permissions List -->
+                <h3 style="margin: 2rem 0 1.5rem; color: #1F2937; font-size: 1.25rem;">الصلاحيات النشطة</h3>
+
+                <div style="background-color: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 4px; overflow: hidden; margin-bottom: 1.5rem;">
+                    <!-- Permission Item 1 -->
+                    <div style="padding: 1.5rem; border-bottom: 1px solid #E0E0E0;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <div>
+                                <h4 style="color: #1F2937; font-size: 1.125rem; margin-bottom: 0.5rem;">مدرسة الملك عبدالله الابتدائية</h4>
+                                <p style="color: #6B7280; font-size: 0.875rem;">رقم الترخيص: EDU-2024-1234 • تم التحقق ✓</p>
+                            </div>
+                            <span style="background-color: #E8F5E9; color: #2E7D32; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem;">نشط</span>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                            <div>
+                                <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 0.25rem;">المعلومات المتاحة:</p>
+                                <p style="color: #1F2937; font-size: 0.95rem;">المعلومات الأساسية + جهات الاتصال + التنبيهات الصحية</p>
+                            </div>
+                            <div>
+                                <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 0.25rem;">مدة الصلاحية:</p>
+                                <p style="color: #1F2937; font-size: 0.95rem;">سنة دراسية 2025 (تنتهي في 30/6/2025)</p>
+                            </div>
+                            <div>
+                                <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 0.25rem;">آخر وصول:</p>
+                                <p style="color: #1F2937; font-size: 0.95rem;">منذ ساعتين - المعلمة سارة أحمد</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 0.75rem;">
+                            <button class="button button-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">تعديل الصلاحيات</button>
+                            <button class="button button-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">عرض سجل الوصول</button>
+                            <button class="button button-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem; color: #DC2626; border: 1px solid #DC2626;">إلغاء الصلاحية</button>
+                        </div>
+                    </div>
+
+                    <!-- Permission Item 2 -->
+                    <div style="padding: 1.5rem; border-bottom: 1px solid #E0E0E0;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <div>
+                                <h4 style="color: #1F2937; font-size: 1.125rem; margin-bottom: 0.5rem;">حضانة براعم المستقبل</h4>
+                                <p style="color: #6B7280; font-size: 0.875rem;">رقم الترخيص: NUR-2024-5678 • تم التحقق ✓</p>
+                            </div>
+                            <span style="background-color: #E8F5E9; color: #2E7D32; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem;">نشط</span>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                            <div>
+                                <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 0.25rem;">المعلومات المتاحة:</p>
+                                <p style="color: #1F2937; font-size: 0.95rem;">المعلومات الأساسية + جهات الاتصال + المعلومات الطبية الكاملة</p>
+                            </div>
+                            <div>
+                                <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 0.25rem;">مدة الصلاحية:</p>
+                                <p style="color: #1F2937; font-size: 0.95rem;">مستمرة (بدون تاريخ انتهاء)</p>
+                            </div>
+                            <div>
+                                <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 0.25rem;">آخر وصول:</p>
+                                <p style="color: #1F2937; font-size: 0.95rem;">أمس - المشرفة هند محمد</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 0.75rem;">
+                            <button class="button button-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">تعديل الصلاحيات</button>
+                            <button class="button button-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">عرض سجل الوصول</button>
+                            <button class="button button-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem; color: #DC2626; border: 1px solid #DC2626;">إلغاء الصلاحية</button>
+                        </div>
+                    </div>
+
+                    <!-- Permission Item 3 -->
+                    <div style="padding: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                            <div>
+                                <h4 style="color: #1F2937; font-size: 1.125rem; margin-bottom: 0.5rem;">نادي الفروسية الرياضي</h4>
+                                <p style="color: #6B7280; font-size: 0.875rem;">رقم الترخيص: SPT-2024-9012 • تم التحقق ✓</p>
+                            </div>
+                            <span style="background-color: #E8F5E9; color: #2E7D32; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem;">نشط</span>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                            <div>
+                                <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 0.25rem;">المعلومات المتاحة:</p>
+                                <p style="color: #1F2937; font-size: 0.95rem;">المعلومات الأساسية + جهات الاتصال</p>
+                            </div>
+                            <div>
+                                <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 0.25rem;">مدة الصلاحية:</p>
+                                <p style="color: #1F2937; font-size: 0.95rem;">6 أشهر (تنتهي في 12/6/2025)</p>
+                            </div>
+                            <div>
+                                <p style="color: #6B7280; font-size: 0.875rem; margin-bottom: 0.25rem;">آخر وصول:</p>
+                                <p style="color: #1F2937; font-size: 0.95rem;">منذ 3 أيام - المدرب خالد علي</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 0.75rem;">
+                            <button class="button button-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">تعديل الصلاحيات</button>
+                            <button class="button button-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">عرض سجل الوصول</button>
+                            <button class="button button-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem; color: #DC2626; border: 1px solid #DC2626;">إلغاء الصلاحية</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Access Log Summary -->
+                <h3 style="margin: 2rem 0 1.5rem; color: #1F2937; font-size: 1.25rem;">سجل الوصول - آخر 30 يوم</h3>
+
+                <div style="background-color: #F9FAFB; padding: 1.5rem; border-radius: 4px; border: 1px solid #E0E0E0;">
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background-color: #E8F5E9; text-align: right;">
+                                    <th style="padding: 0.75rem; color: #1F2937; font-weight: 500; font-size: 0.95rem;">التاريخ والوقت</th>
+                                    <th style="padding: 0.75rem; color: #1F2937; font-weight: 500; font-size: 0.95rem;">الجهة</th>
+                                    <th style="padding: 0.75rem; color: #1F2937; font-weight: 500; font-size: 0.95rem;">اسم المستخدم</th>
+                                    <th style="padding: 0.75rem; color: #1F2937; font-weight: 500; font-size: 0.95rem;">البيانات المطلعة</th>
+                                    <th style="padding: 0.75rem; color: #1F2937; font-weight: 500; font-size: 0.95rem;">الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #E0E0E0;">
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">اليوم 10:30 ص</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">مدرسة الملك عبدالله</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">المعلمة سارة أحمد</td>
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">المعلومات الأساسية</td>
+                                    <td style="padding: 0.75rem;"><span style="color: #2E7D32; font-size: 0.875rem;">✓ مصرح</span></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #E0E0E0;">
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">أمس 2:15 م</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">حضانة براعم المستقبل</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">المشرفة هند محمد</td>
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">المعلومات الطبية</td>
+                                    <td style="padding: 0.75rem;"><span style="color: #2E7D32; font-size: 0.875rem;">✓ مصرح</span></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #E0E0E0;">
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">منذ 3 أيام</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">نادي الفروسية</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">المدرب خالد علي</td>
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">جهات الاتصال</td>
+                                    <td style="padding: 0.75rem;"><span style="color: #2E7D32; font-size: 0.875rem;">✓ مصرح</span></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #E0E0E0;">
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">منذ 5 أيام</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">جهة غير معروفة</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">-</td>
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">محاولة وصول</td>
+                                    <td style="padding: 0.75rem;"><span style="color: #DC2626; font-size: 0.875rem;">✗ مرفوض</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">منذ أسبوع</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">مدرسة الملك عبدالله</td>
+                                    <td style="padding: 0.75rem; color: #1F2937; font-size: 0.95rem;">المعلمة سارة أحمد</td>
+                                    <td style="padding: 0.75rem; color: #6B7280; font-size: 0.95rem;">المعلومات الأساسية</td>
+                                    <td style="padding: 0.75rem;"><span style="color: #2E7D32; font-size: 0.875rem;">✓ مصرح</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="button button-primary" style="margin-top: 1.5rem; width: 100%;">عرض السجل الكامل</button>
+                </div>
+
+                <!-- Privacy Notice -->
+                <div style="background-color: #E8F5E9; border: 1px solid #2E7D32; padding: 1.5rem; border-radius: 4px; margin-top: 2rem;">
+                    <h4 style="color: #2E7D32; margin-bottom: 1rem;">ضمانات الخصوصية في نظام الموافقات:</h4>
+                    <ul style="list-style: none; color: #1F2937; font-size: 0.95rem; margin-right: 1.5rem;">
+                        <li style="padding: 0.5rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32; font-weight: 600;">⚡</span>
+                            <strong>الإلغاء الفوري:</strong> عند إلغاء الصلاحية، يتم إيقاف الوصول خلال ثوانٍ
+                        </li>
+                        <li style="padding: 0.5rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32; font-weight: 600;">🔒</span>
+                            <strong>البيانات المحمية:</strong> الهوية الوطنية الكاملة لا تُشارك مع الجهات التعليمية أبداً
+                        </li>
+                        <li style="padding: 0.5rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32; font-weight: 600;">📋</span>
+                            <strong>السجل الكامل:</strong> جميع عمليات الوصول مسجلة مع التاريخ والوقت واسم المستخدم
+                        </li>
+                        <li style="padding: 0.5rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32; font-weight: 600;">🔔</span>
+                            <strong>الإشعارات:</strong> تلقي إشعار فوري عند كل محاولة وصول (ناجحة أو مرفوضة)
+                        </li>
+                        <li style="padding: 0.5rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32; font-weight: 600;">✅</span>
+                            <strong>التحقق الحكومي:</strong> جميع الجهات يتم التحقق من تراخيصها عبر المنصات الرسمية
+                        </li>
+                        <li style="padding: 0.5rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32; font-weight: 600;">⏱️</span>
+                            <strong>انتهاء تلقائي:</strong> الصلاحيات المؤقتة تنتهي تلقائياً بدون تدخل منك
+                        </li>
+                        <li style="padding: 0.5rem 0; position: relative;">
+                            <span style="position: absolute; right: -1.5rem; color: #2E7D32; font-weight: 600;">🇸🇦</span>
+                            <strong>الامتثال:</strong> النظام متوافق مع قوانين حماية البيانات السعودية
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Manage Wristband -->
+            <div class="tab-content" id="manage">
+                <div class="alert alert-info">
+                    يمكنك إدارة معلومات السوار الذكي من خلال تطبيق أبشر
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>تحديث المعلومات الطبية</h3>
+                        <p>قم بتحديث المعلومات الصحية والطبية للطفل في أي وقت</p>
+                        <button class="button button-primary" style="margin-top: 1rem; width: 100%;">تحديث المعلومات</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>تغيير أرقام الطوارئ</h3>
+                        <p>تحديث أرقام التواصل الطارئة المرتبطة بالسوار</p>
+                        <button class="button button-primary" style="margin-top: 1rem; width: 100%;">تحديث الأرقام</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>سجل الوصول</h3>
+                        <p>عرض سجل كامل بجميع عمليات الوصول لمعلومات الطفل</p>
+                        <button class="button button-primary" style="margin-top: 1rem; width: 100%;">عرض السجل</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>طلب سوار جديد</h3>
+                        <p>في حالة فقدان أو تلف السوار، يمكنك طلب واحد جديد</p>
+                        <button class="button button-primary" style="margin-top: 1rem; width: 100%;">طلب سوار</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>إيقاف الخدمة مؤقتاً</h3>
+                        <p>إيقاف الوصول للمعلومات مؤقتاً لأسباب أمنية</p>
+                        <button class="button button-secondary" style="margin-top: 1rem; width: 100%;">إيقاف مؤقت</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>إلغاء الخدمة</h3>
+                        <p>إلغاء الخدمة نهائياً وحذف جميع البيانات</p>
+                        <button class="button button-secondary" style="margin-top: 1rem; width: 100%;">إلغاء الخدمة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy & Security -->
+        <section class="section">
+            <h2 class="section-title">الخصوصية والأمان</h2>
+            <p class="section-subtitle">التزامنا بحماية بيانات أطفالكم</p>
+
+            <div style="background-color: #F9FAFB; padding: 2rem; border-radius: 4px; border: 1px solid #E0E0E0;">
+                <h3 style="color: #1F2937; margin-bottom: 1rem;">ضمانات الخصوصية:</h3>
+                <ul class="privacy-list">
+                    <li>جميع البيانات مشفرة بأعلى معايير التشفير المعتمدة دولياً</li>
+                    <li>لا يتم مشاركة البيانات مع أي جهة خارجية غير مصرح لها</li>
+                    <li>يتم تسجيل جميع عمليات الوصول وإرسال إشعار فوري لولي الأمر</li>
+                    <li>لا يحتوي السوار على تقنية GPS أو أي وسيلة للتتبع المستمر</li>
+                    <li>يمكن لولي الأمر إيقاف الخدمة أو حذف البيانات في أي وقت</li>
+                    <li>التوافق التام مع قوانين حماية البيانات السعودية</li>
+                    <li>المعلومات محفوظة على خوادم داخل المملكة فقط</li>
+                    <li>مراجعة أمنية دورية من قبل جهات حكومية متخصصة</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Integration Section -->
+        <section class="section">
+            <h2 class="section-title">التكامل مع المنصات الوطنية</h2>
+            <p class="section-subtitle">متصل بشكل آمن مع الأنظمة الحكومية الموثوقة</p>
+
+            <div class="integration-badges">
+                <div class="badge">
+                    <div class="badge-icon"></div>
+                    <span>منصة أبشر</span>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon"></div>
+                    <span>وزارة الصحة</span>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon"></div>
+                    <span>الأحوال المدنية</span>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon"></div>
+                    <span>الهلال الأحمر</span>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon"></div>
+                    <span>الدفاع المدني</span>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon"></div>
+                    <span>وزارة الداخلية</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 منصة أبشر - جميع الحقوق محفوظة</p>
+        <p>Absher Platform - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab
+                this.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('تم استلام طلبكم بنجاح!\n\nسيتم مراجعة البيانات والتحقق منها عبر منصة أبشر.\nسيتم إرسال رسالة نصية تحتوي على:\n• رقم الطلب\n• موعد استلام السوار\n• رابط التتبع\n\nشكراً لثقتكم');
+        });
+
+        // Camera activation for QR scanner
+        document.querySelector('.qr-scanner .button-primary').addEventListener('click', function() {
+            alert('سيتم تفعيل الكاميرا...\n\nملاحظة: هذه نسخة تجريبية\nفي النظام الفعلي سيتم:\n• طلب إذن الوصول للكاميرا\n• مسح رمز QR\n• التحقق من الصلاحيات\n• عرض المعلومات المصرح بها');
+        });
+    </script>
+</body>
+</html>

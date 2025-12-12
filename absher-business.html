@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أبشر أعمال - خدمات المؤسسات التعليمية والتجارية | Absher Business</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFFFFF;
+            color: #1F2937;
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E0E0E0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2E7D32;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1F2937;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #6B7280;
+            font-weight: 400;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .back-button {
+            background-color: #F3F4F6;
+            color: #1F2937;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .back-button:hover {
+            background-color: #E5E7EB;
+        }
+
+        .hero {
+            background-color: #E8F5E9;
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #6B7280;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #2E7D32;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #6B7280;
+            margin-bottom: 2rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: #FFFFFF;
+            border: 2px solid #E0E0E0;
+            border-radius: 4px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: #2E7D32;
+            background-color: #F9FAFB;
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background-color: #E8F5E9;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #2E7D32;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: #6B7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .button {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .button-primary {
+            background-color: #2E7D32;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background-color: #1B5E20;
+        }
+
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .alert-info {
+            background-color: #E8F5E9;
+            border: 1px solid #2E7D32;
+            color: #1F2937;
+        }
+
+        .alert-warning {
+            background-color: #FEF3C7;
+            border: 1px solid #F59E0B;
+            color: #1F2937;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-right: 1.5rem;
+            position: relative;
+            color: #1F2937;
+            font-size: 0.95rem;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #2E7D32;
+            font-weight: 600;
+        }
+
+        .footer {
+            background-color: #F9FAFB;
+            border-top: 1px solid #E0E0E0;
+            padding: 2rem;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">أ</div>
+            <div class="logo-text">
+                <h1>منصة أبشر - أعمال</h1>
+                <p>Absher Platform - Business</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="back-button" onclick="window.location.href='government-portal.html'">
+                العودة للرئيسية
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>أبشر أعمال - بوابة المؤسسات والمنشآت</h1>
+            <p>خدمات متكاملة للمدارس والحضانات والمؤسسات التعليمية والتجارية</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Schools & Educational Institutions Section -->
+        <section class="section">
+            <h2 class="section-title">خدمات المؤسسات التعليمية</h2>
+            <p class="section-subtitle">خدمات مخصصة للمدارس والجامعات والمراكز التعليمية</p>
+
+            <div class="card-grid">
+                <!-- Student Information Access -->
+                <div class="service-card" onclick="alert('طلب الوصول لمعلومات الطلاب\n\nيمكنك طلب الوصول لمعلومات الطلاب بعد موافقة ولي الأمر\n\nالمعلومات المتاحة:\n• المعلومات الأساسية\n• جهات الاتصال الطارئة\n• التنبيهات الصحية (إن وجدت)\n\nجميع الطلبات تتطلب موافقة صريحة من ولي الأمر')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>الوصول لمعلومات الطلاب</h3>
+                    <p>طلب الوصول المصرح لمعلومات الطلاب الأساسية والصحية بموافقة ولي الأمر</p>
+                </div>
+
+                <!-- Student Enrollment -->
+                <div class="service-card" onclick="alert('إدارة تسجيل الطلاب\n\nخدمة متكاملة لتسجيل وإدارة الطلاب الجدد\n\n• قبول طلبات التسجيل الإلكترونية\n• التحقق من بيانات الطلاب عبر أبشر\n• إدارة قوائم الانتظار\n• إصدار خطابات القبول')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="8.5" cy="7" r="4"/>
+                            <line x1="20" y1="8" x2="20" y2="14"/>
+                            <line x1="23" y1="11" x2="17" y2="11"/>
+                        </svg>
+                    </div>
+                    <h3>إدارة تسجيل الطلاب</h3>
+                    <p>نظام متكامل لتسجيل الطلاب الجدد والتحقق من بياناتهم إلكترونياً</p>
+                </div>
+
+                <!-- Attendance & Performance -->
+                <div class="service-card" onclick="alert('الحضور والأداء الأكاديمي\n\nنظام شامل لإدارة حضور الطلاب ومتابعة أدائهم\n\n• تسجيل الحضور اليومي\n• إدارة الدرجات والتقييمات\n• إرسال التقارير لأولياء الأمور\n• متابعة السلوك والمشاركة')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>الحضور والأداء الأكاديمي</h3>
+                    <p>متابعة حضور الطلاب والأداء الدراسي وإرسال التقارير لأولياء الأمور</p>
+                </div>
+
+                <!-- Staff Management -->
+                <div class="service-card" onclick="alert('إدارة الكادر التعليمي\n\nإدارة شاملة للمعلمين والموظفين\n\n• تسجيل المعلمين الجدد\n• التحقق من المؤهلات والتراخيص\n• إدارة الرواتب والحضور\n• تقييم الأداء الوظيفي')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>إدارة الكادر التعليمي</h3>
+                    <p>تسجيل وإدارة المعلمين والموظفين والتحقق من المؤهلات</p>
+                </div>
+
+                <!-- License & Compliance -->
+                <div class="service-card" onclick="alert('الترخيص والامتثال\n\nإدارة تراخيص المؤسسة والامتثال للمعايير\n\n• تجديد ترخيص المؤسسة التعليمية\n• تقارير الامتثال للوزارة\n• الفحوصات والتفتيش\n• الشهادات والاعتمادات')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
+                    <h3>الترخيص والامتثال</h3>
+                    <p>تجديد التراخيص والتحقق من الامتثال للمعايير الحكومية</p>
+                </div>
+
+                <!-- Financial Services -->
+                <div class="service-card" onclick="alert('الخدمات المالية\n\nإدارة الرسوم الدراسية والمدفوعات\n\n• تحصيل الرسوم الدراسية\n• إصدار الفواتير الإلكترونية\n• إدارة الإعفاءات والمنح\n• التقارير المالية')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                    </div>
+                    <h3>الخدمات المالية</h3>
+                    <p>إدارة الرسوم الدراسية والمدفوعات والفواتير الإلكترونية</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nurseries & Childcare Section -->
+        <section class="section">
+            <h2 class="section-title">خدمات الحضانات ومراكز الرعاية</h2>
+            <p class="section-subtitle">خدمات مخصصة للحضانات ومراكز رعاية الأطفال</p>
+
+            <div class="card-grid">
+                <!-- Child Information Access -->
+                <div class="service-card" onclick="alert('الوصول لمعلومات الأطفال\n\nطلب الوصول لمعلومات الأطفال الحرجة\n\nيمكن الوصول إلى:\n• المعلومات الأساسية (الاسم، العمر)\n• جهات الاتصال الطارئة\n• الحساسية والأمراض المزمنة\n• الأدوية المستمرة (بموافقة خاصة)\n\nيتطلب موافقة صريحة من ولي الأمر')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <h3>الوصول لمعلومات الأطفال</h3>
+                    <p>طلب الوصول المصرح للمعلومات الصحية والطارئة للأطفال</p>
+                </div>
+
+                <!-- Child Enrollment -->
+                <div class="service-card" onclick="alert('تسجيل الأطفال\n\nنظام تسجيل متكامل للأطفال الجدد\n\n• استقبال طلبات التسجيل\n• التحقق من معلومات الأطفال\n• إدارة قوائم الانتظار\n• تحديد مواعيد المقابلات')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>تسجيل الأطفال</h3>
+                    <p>نظام متكامل لتسجيل الأطفال الجدد وإدارة القبول</p>
+                </div>
+
+                <!-- Daily Care Reports -->
+                <div class="service-card" onclick="alert('التقارير اليومية\n\nإرسال تقارير يومية لأولياء الأمور\n\n• تقرير الوجبات والنوم\n• الأنشطة اليومية\n• الحالة الصحية\n• الصور والفيديوهات (بموافقة)')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                        </svg>
+                    </div>
+                    <h3>التقارير اليومية</h3>
+                    <p>إرسال تقارير يومية شاملة لأولياء الأمور عن نشاط الطفل</p>
+                </div>
+
+                <!-- Nursery License -->
+                <div class="service-card" onclick="alert('ترخيص الحضانة\n\nإدارة ترخيص الحضانة والامتثال\n\n• تجديد الترخيص السنوي\n• تقارير الفحص الصحي\n• معايير السلامة\n• الاعتمادات والشهادات')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>ترخيص الحضانة</h3>
+                    <p>تجديد وإدارة ترخيص الحضانة والامتثال للمعايير</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Private & Non-Profit Organizations Section -->
+        <section class="section">
+            <h2 class="section-title">خدمات المنشآت الخاصة والجمعيات</h2>
+            <p class="section-subtitle">خدمات للشركات والمؤسسات الخاصة والجمعيات غير الربحية</p>
+
+            <div class="card-grid">
+                <!-- Commercial Registration -->
+                <div class="service-card" onclick="alert('السجل التجاري\n\nإدارة السجل التجاري للمنشأة\n\n• إصدار سجل تجاري جديد\n• تجديد السجل التجاري\n• تعديل البيانات\n• إضافة أنشطة جديدة')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                    </div>
+                    <h3>السجل التجاري</h3>
+                    <p>إصدار وتجديد السجل التجاري وإدارة الأنشطة</p>
+                </div>
+
+                <!-- Employee Services -->
+                <div class="service-card" onclick="alert('خدمات الموظفين\n\nإدارة شؤون الموظفين\n\n• تسجيل موظفين جدد\n• إصدار رخص العمل\n• نقل الكفالات\n• إنهاء الخدمات')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <h3>خدمات الموظفين</h3>
+                    <p>تسجيل الموظفين وإدارة رخص العمل والكفالات</p>
+                </div>
+
+                <!-- Zakat & Tax -->
+                <div class="service-card" onclick="alert('الزكاة والضريبة\n\nالخدمات الضريبية والزكوية\n\n• تقديم الإقرارات الضريبية\n• دفع الزكاة والضرائب\n• استرداد ضريبة القيمة المضافة\n• الشهادات الضريبية')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>الزكاة والضريبة</h3>
+                    <p>تقديم الإقرارات ودفع الزكاة والضرائب</p>
+                </div>
+
+                <!-- Non-Profit Services -->
+                <div class="service-card" onclick="alert('خدمات الجمعيات الخيرية\n\nخدمات مخصصة للجمعيات غير الربحية\n\n• تسجيل جمعية جديدة\n• التقارير السنوية\n• إدارة التبرعات\n• المشاريع والبرامج')">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </div>
+                    <h3>خدمات الجمعيات الخيرية</h3>
+                    <p>تسجيل وإدارة الجمعيات الخيرية والمشاريع</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Notice -->
+        <section class="section">
+            <div class="alert alert-info">
+                <h3 style="color: #2E7D32; margin-bottom: 1rem; font-size: 1.25rem;">نظام الموافقات وحماية البيانات</h3>
+                <p style="margin-bottom: 1rem;">جميع خدمات الوصول لمعلومات الطلاب والأطفال تخضع لنظام موافقات صارم:</p>
+                <ul class="feature-list">
+                    <li>يجب الحصول على موافقة صريحة من ولي الأمر قبل الوصول لأي معلومات</li>
+                    <li>يتم تسجيل جميع عمليات الوصول وإرسال إشعارات فورية لأولياء الأمور</li>
+                    <li>يمكن لولي الأمر إلغاء الصلاحية في أي وقت فوراً</li>
+                    <li>المعلومات الحساسة مثل الهوية الوطنية الكاملة لا تُشارك مع الجهات التعليمية</li>
+                    <li>يجب التحقق من ترخيص المؤسسة عبر المنصات الحكومية</li>
+                    <li>النظام متوافق مع قوانين حماية البيانات السعودية</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="section">
+            <h2 class="section-title">روابط سريعة</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <button class="button button-primary" style="width: 100%;" onclick="alert('دليل المستخدم\n\nسيتم فتح دليل شامل لاستخدام منصة أبشر أعمال\n\n• كيفية طلب الوصول لمعلومات الطلاب\n• إدارة الموافقات\n• التقارير والإحصائيات\n• الدعم الفني')">
+                    دليل المستخدم
+                </button>
+                <button class="button button-primary" style="width: 100%;" onclick="alert('الدعم الفني\n\nتواصل مع فريق الدعم الفني:\n\n📧 support@absher.sa\n📱 920000000\n⏰ من الأحد إلى الخميس\n   8 صباحاً - 5 مساءً')">
+                    الدعم الفني
+                </button>
+                <button class="button button-primary" style="width: 100%;" onclick="alert('التدريب والورش\n\nورش عمل ودورات تدريبية:\n\n• كيفية استخدام المنصة\n• أمن المعلومات\n• الامتثال والخصوصية\n• أفضل الممارسات')">
+                    التدريب والورش
+                </button>
+                <button class="button button-primary" style="width: 100%;" onclick="alert('الأسئلة الشائعة\n\nإجابات للأسئلة الأكثر شيوعاً:\n\n• كيف أطلب الوصول لمعلومات طالب؟\n• ماذا أفعل إذا رفض ولي الأمر الطلب؟\n• كم مدة صلاحية الوصول؟\n• كيف أحدث معلومات المؤسسة؟')">
+                    الأسئلة الشائعة
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 منصة أبشر - جميع الحقوق محفوظة</p>
+        <p>Absher Platform - All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

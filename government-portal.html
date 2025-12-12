@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة أبشر | Absher Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFFFFF;
+            color: #1F2937;
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E0E0E0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2E7D32;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1F2937;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #6B7280;
+            font-weight: 400;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            color: #6B7280;
+        }
+
+        .header-icon:hover {
+            background-color: #F3F4F6;
+        }
+
+        .header-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* Search Section */
+        .search-section {
+            background-color: #E8F5E9;
+            padding: 2.5rem 2rem;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1F2937;
+        }
+
+        .search-box {
+            display: flex;
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            outline: none;
+        }
+
+        .search-button {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #1B5E20;
+        }
+
+        /* Main Container */
+        .main-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 300px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background-color: #FFFFFF;
+            border-left: 1px solid #E0E0E0;
+            padding: 2rem 0;
+        }
+
+        .sidebar-title {
+            padding: 0 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #6B7280;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            padding: 0.875rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            color: #1F2937;
+            font-size: 0.95rem;
+            border-right: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background-color: #F9FAFB;
+        }
+
+        .nav-item.active {
+            background-color: #E8F5E9;
+            border-right-color: #2E7D32;
+            color: #2E7D32;
+            font-weight: 500;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .content-header {
+            margin-bottom: 2rem;
+        }
+
+        .content-header h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-header p {
+            color: #6B7280;
+            font-size: 0.95rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 2rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 0.75rem 0;
+            cursor: pointer;
+            color: #6B7280;
+            font-size: 0.95rem;
+            border-bottom: 2px solid transparent;
+            position: relative;
+            bottom: -1px;
+        }
+
+        .tab.active {
+            color: #2E7D32;
+            border-bottom-color: #2E7D32;
+            font-weight: 500;
+        }
+
+        /* Service Categories */
+        .service-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .category-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #1F2937;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-item {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            color: #1F2937;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .service-item:hover {
+            color: #2E7D32;
+        }
+
+        .service-bullet {
+            width: 6px;
+            height: 6px;
+            background-color: #2E7D32;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #F9FAFB;
+            border-top: 1px solid #E0E0E0;
+            padding: 2rem;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .header-actions {
+                gap: 0.5rem;
+            }
+
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+
+            .logo-text p {
+                display: none;
+            }
+
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-left: none;
+                border-bottom: 1px solid #E0E0E0;
+            }
+
+            .content-area {
+                padding: 1rem;
+            }
+
+            .search-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .search-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">أ</div>
+            <div class="logo-text">
+                <h1>منصة أبشر</h1>
+                <p>Absher Platform</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <div class="header-icon" title="دليل الخدمات">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <div class="header-icon" title="الإشعارات">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+            </div>
+            <div class="header-icon" title="تبديل اللغة">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+            </div>
+            <div class="header-icon" title="الإعدادات">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+                </svg>
+            </div>
+            <div class="header-icon" title="تسجيل الخروج">
+                <svg viewBox="0 0 24 24">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <h2 class="search-title">ابحث عن الخدمة التي تحتاجها</h2>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="اكتب هنا للبحث عن الخدمات الحكومية...">
+                <button class="search-button">بحث</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Sections -->
+    <div style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+
+        <!-- Section Title -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: 1.75rem; font-weight: 600; color: #1F2937; margin-bottom: 0.5rem;">اختر القسم المناسب</h2>
+            <p style="font-size: 1.125rem; color: #6B7280;">الوصول إلى الخدمات الحكومية حسب نوع المستخدم</p>
+        </div>
+
+        <!-- Three Main Section Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+
+            <!-- Absher Individuals -->
+            <div onclick="window.location.href='absher-individuals.html'" style="background-color: #FFFFFF; border: 2px solid #E0E0E0; border-radius: 4px; padding: 2.5rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='#2E7D32'; this.style.backgroundColor='#F9FAFB'" onmouseout="this.style.borderColor='#E0E0E0'; this.style.backgroundColor='#FFFFFF'">
+                <div style="width: 64px; height: 64px; background-color: #E8F5E9; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: #1F2937; margin-bottom: 1rem;">أبشر أفراد</h3>
+                <p style="color: #6B7280; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">خدمات المواطنين والمقيمين لإدارة الخدمات الحكومية الشخصية والعائلية</p>
+                <ul style="list-style: none; color: #1F2937; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        الهوية والأحوال المدنية
+                    </li>
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        المرور والمركبات
+                    </li>
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        الخدمات الصحية والتعليمية
+                    </li>
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        الهوية الرقمية للأطفال
+                    </li>
+                </ul>
+                <div style="background-color: #2E7D32; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-align: center; font-weight: 500;">
+                    الدخول إلى أبشر أفراد
+                </div>
+            </div>
+
+            <!-- Absher Business -->
+            <div onclick="window.location.href='absher-business.html'" style="background-color: #FFFFFF; border: 2px solid #E0E0E0; border-radius: 4px; padding: 2.5rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='#2E7D32'; this.style.backgroundColor='#F9FAFB'" onmouseout="this.style.borderColor='#E0E0E0'; this.style.backgroundColor='#FFFFFF'">
+                <div style="width: 64px; height: 64px; background-color: #E8F5E9; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: #1F2937; margin-bottom: 1rem;">أبشر أعمال</h3>
+                <p style="color: #6B7280; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">خدمات المؤسسات والمنشآت الخاصة وغير الربحية</p>
+                <ul style="list-style: none; color: #1F2937; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        المدارس والمؤسسات التعليمية
+                    </li>
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        الحضانات ومراكز الرعاية
+                    </li>
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        المنشآت الخاصة والشركات
+                    </li>
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        الجمعيات والمؤسسات غير الربحية
+                    </li>
+                </ul>
+                <div style="background-color: #2E7D32; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-align: center; font-weight: 500;">
+                    الدخول إلى أبشر أعمال
+                </div>
+            </div>
+
+            <!-- Absher Services -->
+            <div onclick="alert('أبشر خدمات\n\nمخصص للجهات الحكومية والهيئات الرسمية\n\nيتطلب تسجيل دخول بصلاحيات حكومية')" style="background-color: #FFFFFF; border: 2px solid #E0E0E0; border-radius: 4px; padding: 2.5rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='#2E7D32'; this.style.backgroundColor='#F9FAFB'" onmouseout="this.style.borderColor='#E0E0E0'; this.style.backgroundColor='#FFFFFF'">
+                <div style="width: 64px; height: 64px; background-color: #E8F5E9; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <path d="M9 22V12h6v10"/>
+                    </svg>
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: #1F2937; margin-bottom: 1rem;">أبشر خدمات</h3>
+                <p style="color: #6B7280; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">خدمات الجهات الحكومية والهيئات الرسمية</p>
+                <ul style="list-style: none; color: #1F2937; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        الوزارات والهيئات الحكومية
+                    </li>
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        الجهات الأمنية والخدمية
+                    </li>
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        المستشفيات والمراكز الصحية
+                    </li>
+                    <li style="padding: 0.5rem 0; position: relative; padding-right: 1.5rem;">
+                        <span style="position: absolute; right: 0; color: #2E7D32;">•</span>
+                        خدمات التكامل الحكومية
+                    </li>
+                </ul>
+                <div style="background-color: #2E7D32; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-align: center; font-weight: 500;">
+                    الدخول إلى أبشر خدمات
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Access Section -->
+        <div style="background-color: #F9FAFB; border: 1px solid #E0E0E0; border-radius: 4px; padding: 2rem; margin-bottom: 2rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: #1F2937; margin-bottom: 1.5rem; text-align: center;">الخدمات الشائعة - وصول سريع</h3>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <div class="tab active">الكل</div>
+                <div class="tab">الأفراد</div>
+                <div class="tab">الأعمال</div>
+                <div class="tab">المقيمين</div>
+            </div>
+
+            <!-- Service Categories -->
+            <div class="service-category">
+                <h3 class="category-title">الهوية والأحوال المدنية</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>إصدار بطاقة الهوية الوطنية</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>تجديد بطاقة الهوية الوطنية</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>استخراج شهادة ميلاد</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>تحديث البيانات الشخصية</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>إصدار وثيقة السفر</span>
+                    </li>
+                    <li class="service-item" onclick="window.location.href='child-wristband-service.html'" style="background-color: #E8F5E9;">
+                        <span class="service-bullet"></span>
+                        <span>الهوية الرقمية للاطفال (خدمة جديدة)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h3 class="category-title">العمل والتوظيف</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>استعلام عن رخصة العمل</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>طلب تصريح عمل</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>تجديد عقد العمل</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>التأمينات الاجتماعية</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>شهادة الخبرة</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h3 class="category-title">المرور والمركبات</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>تجديد رخصة القيادة</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>تجديد استمارة السيارة</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>الاستعلام عن المخالفات المرورية</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>نقل ملكية مركبة</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>حجز موعد فحص دوري</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h3 class="category-title">الصحة</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>حجز موعد في المستشفى</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>الاستعلام عن التأمين الصحي</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>طلب تقرير طبي</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>التطعيمات والشهادات الصحية</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>الوصفات الطبية الإلكترونية</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="service-category">
+                <h3 class="category-title">التعليم</h3>
+                <ul class="service-list">
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>تسجيل الطلاب في المدارس</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>نتائج الامتحانات</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>الاستعلام عن المنح الدراسية</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>طلب شهادة تخرج</span>
+                    </li>
+                    <li class="service-item">
+                        <span class="service-bullet"></span>
+                        <span>معادلة الشهادات</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 منصة أبشر - جميع الحقوق محفوظة</p>
+        <p>Absher Platform - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Navigation menu
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Service item click
+        document.querySelectorAll('.service-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Skip if item already has onclick handler
+                if (!this.hasAttribute('onclick')) {
+                    alert('سيتم توجيهك إلى صفحة الخدمة');
+                }
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-button').addEventListener('click', function() {
+            const searchValue = document.querySelector('.search-input').value;
+            if(searchValue) {
+                alert('البحث عن: ' + searchValue);
+            }
+        });
+
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') {
+                document.querySelector('.search-button').click();
+            }
+        });
+    </script>
+</body>
+</html>
