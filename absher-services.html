@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أبشر خدمات - خدمات الجهات الحكومية | Absher Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFFFFF;
+            color: #1F2937;
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E0E0E0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2E7D32;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1F2937;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #6B7280;
+            font-weight: 400;
+        }
+
+        .back-button {
+            background-color: #F3F4F6;
+            color: #1F2937;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .back-button:hover {
+            background-color: #E5E7EB;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            padding: 3rem 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #2E7D32;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #6B7280;
+            margin-bottom: 2rem;
+        }
+
+        /* Service Cards */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background-color: #FFFFFF;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            border-color: #2E7D32;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #2E7D32;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .card-badge {
+            background-color: #2E7D32;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .service-card h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: #6B7280;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .access-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .access-list li {
+            padding: 0.5rem 0;
+            padding-right: 1.5rem;
+            position: relative;
+            color: #1F2937;
+            font-size: 0.95rem;
+        }
+
+        .access-list li:before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #2E7D32;
+            font-weight: 600;
+        }
+
+        .button {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .button-primary {
+            background-color: #2E7D32;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background-color: #1B5E20;
+        }
+
+        .button-secondary {
+            background-color: #F3F4F6;
+            color: #1F2937;
+        }
+
+        .button-secondary:hover {
+            background-color: #E5E7EB;
+        }
+
+        /* Alert Box */
+        .alert {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .alert-warning {
+            background-color: #FEF3C7;
+            border: 2px solid #F59E0B;
+            color: #92400E;
+        }
+
+        .alert-info {
+            background-color: #E8F5E9;
+            border: 2px solid #2E7D32;
+            color: #1F2937;
+        }
+
+        .alert h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: inherit;
+        }
+
+        /* QR Scanner Section */
+        .qr-scanner-section {
+            background: linear-gradient(135deg, #F9FAFB 0%, #E8F5E9 100%);
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            border: 2px solid #E0E0E0;
+        }
+
+        .qr-placeholder {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 2rem;
+            background-color: #FFFFFF;
+            border: 3px dashed #2E7D32;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .qr-placeholder svg {
+            width: 120px;
+            height: 120px;
+            stroke: #2E7D32;
+            opacity: 0.3;
+        }
+
+        /* Requirements Box */
+        .requirements-box {
+            background-color: #FFFFFF;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .requirements-box h4 {
+            color: #1F2937;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            color: #1F2937;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 4px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            background-color: #FFFFFF;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #2E7D32;
+        }
+
+        .required {
+            color: #DC2626;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-box {
+            background-color: #F9FAFB;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #E0E0E0;
+        }
+
+        .info-box h4 {
+            color: #2E7D32;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            color: #6B7280;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #F9FAFB;
+            border-top: 1px solid #E0E0E0;
+            padding: 2rem;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .qr-scanner-section {
+                padding: 2rem 1rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">أ</div>
+            <div class="logo-text">
+                <h1>منصة أبشر - خدمات</h1>
+                <p>Absher Platform - Services</p>
+            </div>
+        </div>
+        <button class="back-button" onclick="window.location.href='government-portal.html'">
+            العودة للرئيسية
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>أبشر خدمات - الجهات الحكومية والخدمية</h1>
+            <p>منصة متكاملة للجهات الحكومية والمرخصة للوصول الآمن لمعلومات الهوية الرقمية للأطفال في حالات الطوارئ</p>
+            <span class="hero-badge">✓ مصرح ومعتمد حكومياً</span>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Alert -->
+        <div class="alert alert-warning">
+            <h4>⚠️ تنبيه هام - صلاحيات محدودة</h4>
+            <p>هذه المنصة مخصصة فقط للجهات الحكومية والمرخصة. يتطلب الوصول مصادقة حكومية وصلاحيات موثقة. جميع عمليات الوصول مسجلة ومراقبة، وسيتم إرسال إشعار فوري لولي الأمر عند كل عملية وصول.</p>
+        </div>
+
+        <!-- Authorized Entities Section -->
+        <section class="section">
+            <h2 class="section-title">الجهات المصرح لها بالوصول</h2>
+            <p class="section-subtitle">الجهات التالية يمكنها الوصول لمعلومات الهوية الرقمية للأطفال في حالات محددة</p>
+
+            <div class="service-grid">
+                <!-- Hospitals & Medical -->
+                <div class="service-card" onclick="document.getElementById('qr-section').scrollIntoView({behavior: 'smooth'})">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge">وصول فوري</span>
+                    </div>
+                    <h3>المستشفيات والمراكز الصحية</h3>
+                    <p>الوصول الطارئ للمعلومات الطبية الحرجة في حالات الطوارئ الصحية</p>
+                    <ul class="access-list">
+                        <li>فصيلة الدم</li>
+                        <li>الحساسية المعروفة</li>
+                        <li>الأمراض المزمنة</li>
+                        <li>الأدوية المستمرة</li>
+                        <li>جهات الاتصال الطارئة</li>
+                    </ul>
+                    <button class="button button-primary">الوصول الطارئ</button>
+                </div>
+
+                <!-- Ambulance Services -->
+                <div class="service-card" onclick="document.getElementById('qr-section').scrollIntoView({behavior: 'smooth'})">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="1" y="3" width="15" height="13"/>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                                <circle cx="5.5" cy="18.5" r="2.5"/>
+                                <circle cx="18.5" cy="18.5" r="2.5"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge">وصول فوري</span>
+                    </div>
+                    <h3>الهلال الأحمر - الإسعاف</h3>
+                    <p>الوصول السريع للمعلومات الطبية أثناء نقل الحالات الطارئة</p>
+                    <ul class="access-list">
+                        <li>المعلومات الطبية الكاملة</li>
+                        <li>جهات الاتصال الطارئة</li>
+                        <li>تاريخ الحساسية والأدوية</li>
+                        <li>الاسم والعمر</li>
+                    </ul>
+                    <button class="button button-primary">الوصول الطارئ</button>
+                </div>
+
+                <!-- Police Services -->
+                <div class="service-card" onclick="document.getElementById('qr-section').scrollIntoView({behavior: 'smooth'})">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge">وصول محدود</span>
+                    </div>
+                    <h3>الشرطة والأمن العام</h3>
+                    <p>الوصول المحدود في حالات الطوارئ مثل الطفل المفقود أو الحوادث</p>
+                    <ul class="access-list">
+                        <li>الاسم الكامل والعمر</li>
+                        <li>جهات الاتصال الطارئة</li>
+                        <li>الصورة الشخصية (إن وجدت)</li>
+                    </ul>
+                    <p style="color: #DC2626; font-size: 0.875rem; margin-top: 1rem;">
+                        <strong>ملاحظة:</strong> لا يتم الكشف عن العنوان أو معلومات السكن
+                    </p>
+                    <button class="button button-primary">الوصول الطارئ</button>
+                </div>
+
+                <!-- Civil Defense -->
+                <div class="service-card" onclick="document.getElementById('qr-section').scrollIntoView({behavior: 'smooth'})">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge">وصول فوري</span>
+                    </div>
+                    <h3>الدفاع المدني</h3>
+                    <p>الوصول للمعلومات في حالات الحرائق والكوارث والإنقاذ</p>
+                    <ul class="access-list">
+                        <li>المعلومات الصحية الطارئة</li>
+                        <li>جهات الاتصال</li>
+                        <li>الاسم والعمر</li>
+                    </ul>
+                    <button class="button button-primary">الوصول الطارئ</button>
+                </div>
+
+                <!-- Schools (with consent) -->
+                <div class="service-card" onclick="alert('الوصول للمؤسسات التعليمية\n\nللوصول لمعلومات الطلاب:\n\n1. يجب التسجيل في منصة أبشر أعمال\n2. الحصول على موافقة صريحة من ولي الأمر\n3. التحقق من ترخيص المؤسسة التعليمية\n\nانتقل إلى: أبشر أعمال')">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge">بموافقة ولي الأمر</span>
+                    </div>
+                    <h3>المؤسسات التعليمية</h3>
+                    <p>الوصول المحدود بموافقة ولي الأمر للمدارس والحضانات المرخصة</p>
+                    <ul class="access-list">
+                        <li>المعلومات الأساسية فقط</li>
+                        <li>جهات الاتصال الطارئة</li>
+                        <li>التنبيهات الصحية (اختياري)</li>
+                    </ul>
+                    <p style="color: #2E7D32; font-size: 0.875rem; margin-top: 1rem;">
+                        <strong>يتطلب:</strong> التسجيل في أبشر أعمال + موافقة ولي الأمر
+                    </p>
+                    <button class="button button-secondary">الذهاب لأبشر أعمال</button>
+                </div>
+
+                <!-- Government Agencies -->
+                <div class="service-card" onclick="alert('الجهات الحكومية الأخرى\n\nللوصول يتطلب:\n\n• تصريح رسمي من الجهة\n• صلاحيات موثقة في النظام\n• سبب محدد للوصول\n\nللمزيد من المعلومات، تواصل مع الدعم الفني')">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </div>
+                        <span class="card-badge">بصلاحيات خاصة</span>
+                    </div>
+                    <h3>الجهات الحكومية الأخرى</h3>
+                    <p>الوزارات والهيئات الحكومية بصلاحيات محددة حسب الحاجة</p>
+                    <ul class="access-list">
+                        <li>يتطلب تصريح رسمي</li>
+                        <li>صلاحيات محددة مسبقاً</li>
+                        <li>تسجيل كامل لجميع العمليات</li>
+                    </ul>
+                    <button class="button button-secondary">طلب صلاحيات</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- QR Scanner Section -->
+        <section class="section" id="qr-section">
+            <h2 class="section-title">الوصول الطارئ للمعلومات</h2>
+            <p class="section-subtitle">مسح رمز QR من السوار الذكي للوصول الفوري للمعلومات الحرجة</p>
+
+            <div class="qr-scanner-section">
+                <div class="qr-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <rect x="7" y="7" width="3" height="3"/>
+                        <rect x="14" y="7" width="3" height="3"/>
+                        <rect x="7" y="14" width="3" height="3"/>
+                        <rect x="14" y="14" width="3" height="3"/>
+                    </svg>
+                    <p style="color: #6B7280; font-size: 1rem;">قم بتوجيه الكاميرا نحو رمز QR</p>
+                </div>
+
+                <h3 style="color: #1F2937; margin-bottom: 1rem; font-size: 1.25rem;">مسح رمز QR من سوار الطفل</h3>
+                <p style="color: #6B7280; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    سيتم الوصول للمعلومات الطارئة فوراً بعد المسح والتحقق من الصلاحيات
+                </p>
+
+                <button class="button button-primary" style="max-width: 300px; margin: 0 auto;" onclick="activateQRScanner()">
+                    تفعيل الكاميرا والمسح
+                </button>
+
+                <div class="requirements-box">
+                    <h4>متطلبات الوصول الطارئ:</h4>
+
+                    <div class="form-group">
+                        <label class="form-label">نوع الجهة <span class="required">*</span></label>
+                        <select class="form-select" id="entityType">
+                            <option value="">اختر نوع الجهة</option>
+                            <option value="hospital">مستشفى / مركز صحي</option>
+                            <option value="ambulance">الهلال الأحمر - إسعاف</option>
+                            <option value="police">الشرطة / الأمن العام</option>
+                            <option value="civil-defense">الدفاع المدني</option>
+                            <option value="other">جهة حكومية أخرى</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">رقم الترخيص المهني / رقم الهوية <span class="required">*</span></label>
+                        <input type="text" class="form-input" placeholder="أدخل رقم الترخيص أو الهوية الوظيفية">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">سبب الوصول <span class="required">*</span></label>
+                        <select class="form-select">
+                            <option value="">اختر السبب</option>
+                            <option value="emergency">حالة طوارئ طبية</option>
+                            <option value="accident">حادث مروري</option>
+                            <option value="lost">طفل مفقود</option>
+                            <option value="disaster">كارثة / إنقاذ</option>
+                            <option value="medical-check">فحص طبي</option>
+                            <option value="other">سبب آخر</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">ملاحظات إضافية</label>
+                        <input type="text" class="form-input" placeholder="معلومات إضافية عن الحالة (اختياري)">
+                    </div>
+
+                    <p style="font-size: 0.875rem; color: #6B7280; margin-top: 1rem;">
+                        سيتم تسجيل جميع عمليات الوصول وإرسال إشعار فوري لولي الأمر
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What You Get Section -->
+        <section class="section">
+            <h2 class="section-title">المعلومات المتاحة عند المسح</h2>
+            <p class="section-subtitle">حسب نوع الجهة والصلاحيات الممنوحة</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4>🩺 للمستشفيات والإسعاف</h4>
+                    <p>• فصيلة الدم<br>• الحساسية المعروفة<br>• الأمراض المزمنة<br>• الأدوية المستمرة<br>• جهات الاتصال الطارئة<br>• التاريخ الطبي المختصر</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>👮 للشرطة والأمن</h4>
+                    <p>• الاسم الكامل والعمر<br>• الصورة الشخصية<br>• جهات الاتصال الطارئة<br>• بدون عنوان السكن</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>🚒 للدفاع المدني</h4>
+                    <p>• المعلومات الصحية الطارئة<br>• جهات الاتصال<br>• الاسم والعمر<br>• التنبيهات الخاصة</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>📱 الإشعارات الفورية</h4>
+                    <p>• إشعار فوري لولي الأمر<br>• تسجيل كامل للعملية<br>• اسم المستخدم والجهة<br>• التاريخ والوقت<br>• سبب الوصول</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security & Privacy Section -->
+        <section class="section">
+            <h2 class="section-title">الأمان والخصوصية</h2>
+
+            <div class="alert alert-info">
+                <h4>🔒 ضمانات الأمان والشفافية</h4>
+                <ul class="access-list" style="margin-top: 1rem;">
+                    <li>جميع عمليات الوصول مسجلة بالكامل مع التاريخ والوقت واسم المستخدم</li>
+                    <li>إشعار فوري يُرسل لولي الأمر عند كل عملية وصول</li>
+                    <li>التحقق الإلزامي من صلاحيات الجهة والمستخدم</li>
+                    <li>تشفير متقدم لجميع البيانات المنقولة والمخزنة</li>
+                    <li>الوصول محدود بالمعلومات الضرورية فقط حسب نوع الجهة</li>
+                    <li>مراجعة دورية من الجهات الرقابية لضمان الامتثال</li>
+                    <li>عقوبات صارمة على الوصول غير المصرح أو إساءة الاستخدام</li>
+                </ul>
+            </div>
+
+            <div class="info-grid" style="margin-top: 2rem;">
+                <div class="info-box" style="background-color: #FEF3C7; border-color: #F59E0B;">
+                    <h4 style="color: #92400E;">⚠️ تحذير قانوني</h4>
+                    <p style="color: #92400E;">الوصول غير المصرح به أو إساءة استخدام المعلومات يعرض المخالف للمساءلة القانونية والعقوبات الجنائية</p>
+                </div>
+
+                <div class="info-box" style="background-color: #E8F5E9; border-color: #2E7D32;">
+                    <h4>✓ الامتثال للقوانين</h4>
+                    <p>النظام متوافق بالكامل مع قوانين حماية البيانات السعودية ومعايير الأمن السيبراني الوطنية</p>
+                </div>
+
+                <div class="info-box" style="background-color: #E8F5E9; border-color: #2E7D32;">
+                    <h4>📋 سجل الوصول</h4>
+                    <p>كل عملية وصول محفوظة لمدة 7 سنوات للمراجعة والتدقيق عند الحاجة</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section class="section">
+            <h2 class="section-title">الدعم الفني والمساعدة</h2>
+            <p class="section-subtitle">نحن هنا لمساعدتك على مدار الساعة</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div style="background-color: #F9FAFB; padding: 2rem; border-radius: 8px; text-align: center; border: 2px solid #E0E0E0;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📞</div>
+                    <h4 style="color: #1F2937; margin-bottom: 0.5rem;">الهاتف</h4>
+                    <p style="color: #2E7D32; font-size: 1.25rem; font-weight: 600;">920000000</p>
+                    <p style="color: #6B7280; font-size: 0.875rem;">متاح 24/7</p>
+                </div>
+
+                <div style="background-color: #F9FAFB; padding: 2rem; border-radius: 8px; text-align: center; border: 2px solid #E0E0E0;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+                    <h4 style="color: #1F2937; margin-bottom: 0.5rem;">البريد الإلكتروني</h4>
+                    <p style="color: #2E7D32; font-size: 1.125rem; font-weight: 600;">services@absher.sa</p>
+                    <p style="color: #6B7280; font-size: 0.875rem;">رد خلال 24 ساعة</p>
+                </div>
+
+                <div style="background-color: #F9FAFB; padding: 2rem; border-radius: 8px; text-align: center; border: 2px solid #E0E0E0;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💬</div>
+                    <h4 style="color: #1F2937; margin-bottom: 0.5rem;">الدردشة المباشرة</h4>
+                    <p style="color: #2E7D32; font-size: 1.125rem; font-weight: 600;">دعم فوري</p>
+                    <p style="color: #6B7280; font-size: 0.875rem;">متاح 24/7</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 منصة أبشر - جميع الحقوق محفوظة</p>
+        <p>Absher Platform - All Rights Reserved</p>
+        <p style="margin-top: 1rem; color: #DC2626;">هذه المنصة للجهات المصرح لها فقط - الوصول غير المصرح به يعرض للمساءلة القانونية</p>
+    </footer>
+
+    <script>
+        function activateQRScanner() {
+            const entityType = document.getElementById('entityType').value;
+
+            if (!entityType) {
+                alert('يرجى تحديد نوع الجهة أولاً');
+                return;
+            }
+
+            alert(`تفعيل الكاميرا لمسح رمز QR\n\nنوع الجهة: ${getEntityName(entityType)}\n\n⚠️ ملاحظة: هذه نسخة تجريبية\n\nفي النظام الفعلي سيتم:\n\n1. طلب إذن الوصول للكاميرا\n2. مسح رمز QR من سوار الطفل\n3. التحقق من صلاحياتك\n4. عرض المعلومات المصرح بها فقط\n5. إرسال إشعار فوري لولي الأمر\n6. تسجيل العملية في السجل\n\nالمعلومات المتاحة حسب نوع جهتك`);
+        }
+
+        function getEntityName(type) {
+            const names = {
+                'hospital': 'مستشفى / مركز صحي',
+                'ambulance': 'الهلال الأحمر - إسعاف',
+                'police': 'الشرطة / الأمن العام',
+                'civil-defense': 'الدفاع المدني',
+                'other': 'جهة حكومية أخرى'
+            };
+            return names[type] || type;
+        }
+
+        // Auto-scroll info based on entity type
+        document.getElementById('entityType').addEventListener('change', function() {
+            const value = this.value;
+            if (value) {
+                console.log('Selected entity:', value);
+            }
+        });
+    </script>
+</body>
+</html>
